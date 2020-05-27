@@ -1,7 +1,6 @@
+import java.util.HashMap;
 
-
-
-public class Solution {
+public class Solution1 {
     public int[] twoSum(int[] nums, int target) {
         HashMap<Integer, Integer> m = new HashMap<Integer, Integer>();
         int[] res = new int[2];
@@ -20,7 +19,7 @@ public class Solution {
     }
 } 
 
-public class Solution {
+public class Solution2 {
     public int[] twoSum(int[] nums, int target) {
         HashMap<Integer, Integer> m = new HashMap<Integer, Integer>();
         int[] res = new int[2];
