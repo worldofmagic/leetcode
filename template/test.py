@@ -1,15 +1,25 @@
-def maxsubarray(nums):
-    if len(nums) == 1:
-        return nums[0]
-    n = len(nums)
-    max_sum = nums[0]
-    for i in range(n):
-        for j in range(i+1, n+1):
-            print("sum is {0}, i is {1}, j is {2}".format(sum(nums[i:j]), i, j))
-            if max_sum is None or max_sum < sum(nums[i:j]):
-                max_sum = sum(nums[i:j])
-    return max_sum
+def mypow(x: float, n: int):
+    if n == 0:
+        return 1
+    elif n > 0:
+        temp = n
+        res = 1
+        while temp > 0 :
+            res = res * x
+            print(res)
+            temp -=1
+        return x
+    else :
+        temp = n
+        res = 1/x
+        if n == -1:
+            return res
+        else:
+            while temp < 0:
+                res = res / x
+                temp += 1
+            return res
 
 
-nums = [-2,1]
-a = maxsubarray(nums)
+
+print(mypow(2.00000,10))
