@@ -10,43 +10,60 @@
 #     def __init__(self, val=0, next=None):
 #         self.val = val
 #         self.next = next
+import heapq
 class Solution:
     def mergeKLists(self, lists: List[ListNode]) -> ListNode:
-        if not lists:
-            return None
+        head = ListNode(-1)
+        move = head # move指针指向head
+        heap = [] # heap初始化
+        heapq.heapify(heap)
+        [heapq.heappush(heap, (l.val, i)) for i,l in enumerate(lists) if l]
+        while heap:
+            curVal, curIdx = heapq.heappop(heap)
+            curHead = lists[curIdx]
+            curNext = curHead.next
+            move.next
+
+
+
+
+# class Solution:
+#     def mergeKLists(self, lists: List[ListNode]) -> ListNode:
+#         if not lists:
+#             return None
         
-        while len(lists) > 1:
-            next_lists = []
-            for i in range(0, len(lists), 2):
-                if i + 1 < len(lists):
-                    new_list = self.merge_two_lists(lists[i], lists[i + 1])
-                else:
-                    new_list = lists[i]
-                next_lists.append(new_list)
+#         while len(lists) > 1:
+#             next_lists = []
+#             for i in range(0, len(lists), 2):
+#                 if i + 1 < len(lists):
+#                     new_list = self.merge_two_lists(lists[i], lists[i + 1])
+#                 else:
+#                     new_list = lists[i]
+#                 next_lists.append(new_list)
                 
-            lists = next_lists
+#             lists = next_lists
             
-        return lists[0]
+#         return lists[0]
         
 
 
-    def merge_two_lists(self, head1, head2):
-        tail = dummy = ListNode(0)
-        while head1 and head2:
-            if head1.val < head2.val:
-                tail.next = head1
-                head1 = head1.next
-            else:
-                tail.next = head2
-                head2 = head2.next
-            tail = tail.next
+#     def merge_two_lists(self, head1, head2):
+#         tail = dummy = ListNode(0)
+#         while head1 and head2:
+#             if head1.val < head2.val:
+#                 tail.next = head1
+#                 head1 = head1.next
+#             else:
+#                 tail.next = head2
+#                 head2 = head2.next
+#             tail = tail.next
             
-        if head1:
-            tail.next = head1
-        if head2:
-            tail.next = head2
+#         if head1:
+#             tail.next = head1
+#         if head2:
+#             tail.next = head2
         
-        return dummy.next
+#         return dummy.next
 
         
 # @lc code=end
